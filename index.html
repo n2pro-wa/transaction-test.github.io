@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+	
+</head>
+<body>
+<form action="https://acs.3ds-pit.com/" method="post">
+    <table width="70%">
+        <tr>
+            <td>
+                MD:
+            </td>
+            <td >
+                <input id="md" type="text" name="MD" value="" style="width: 1000px"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                PaReq:
+            </td>
+            <td>
+                <textarea id="pareq" name="PaReq" value="" style="width: 1000px" rows="7"></textarea>
+            </td>
+        </tr>
+        <tr>    
+            <td>
+                TermUrl:
+            </td>
+            <td>
+                <input id="termurl" type="text" name="TermUrl" value="" style="width: 1000px"/>
+            </td>
+        </tr>
+    </table>
+    <br/>
+   
+    <input type="submit" value="Continue">
+</form>
+	<script>
+	document.addEventListener("DOMContentLoaded", function(event) {
+		var md = getParameterByName('md');
+		var pareq = getParameterByName('pareq');
+		var termurl = getParameterByName('termurl');
+		
+		document.getElementById("md").value = md;
+		document.getElementById("pareq").value = pareq;
+		document.getElementById("termurl").value = termurl;
+	});
+	
+		function getParameterByName(name, url = window.location.href) {
+		name = name.replace(/[\[\]]/g, '\\$&');
+		var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+			results = regex.exec(url);
+		if (!results) return null;
+		if (!results[2]) return '';
+		return decodeURIComponent(results[2].replace(/\+/g, ' '));
+	}
+	</script>
+</body>
+</html>
