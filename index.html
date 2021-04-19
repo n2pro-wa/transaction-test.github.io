@@ -44,9 +44,9 @@
 		var pareq = getParameterByName('pareq');
 		var termurl = getParameterByName('termurl');
 		
-		document.getElementById("md").value = md;
-		document.getElementById("pareq").value = pareq;
-		document.getElementById("termurl").value = termurl;
+        document.getElementById("md").value = md.replace(/\s/g, '');
+        document.getElementById("pareq").value = pareq.replace(/\s/g, '')
+        document.getElementById("termurl").value = termurl.replace(/\s/g, '');
 	});
 	
 		function getParameterByName(name, url = window.location.href) {
