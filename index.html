@@ -22,7 +22,7 @@
                 PaReq:
             </td>
             <td>
-                <input id="pareq" name="PaReq" value="" style="width: 10000px"/>
+                <textarea id="pareq" name="PaReq" value="" style="width: 1000px" rows="7"></textarea>
             </td>
         </tr>
         <tr>    
@@ -44,9 +44,9 @@
 		var pareq = getParameterByName('pareq');
 		var termurl = getParameterByName('termurl');
 		
-        document.getElementById("md").value = md.replace(/\s/g, '');
-        document.getElementById("pareq").value = pareq.replace(/\s/g, '')
-        document.getElementById("termurl").value = termurl.replace(/\s/g, '');
+		document.getElementById("md").value = md;
+        document.getElementById("pareq").value = pareq.replace(/\ /g, '\r\n');
+		document.getElementById("termurl").value = termurl;
 	});
 	
 		function getParameterByName(name, url = window.location.href) {
@@ -55,7 +55,7 @@
 			results = regex.exec(url);
 		if (!results) return null;
 		if (!results[2]) return '';
-		return decodeURIComponent(results[2].replace(/\+/g, ' '));
+		return decodeURIComponent(results[2]);
 	}
 	</script>
 </body>
