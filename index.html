@@ -42,11 +42,14 @@
 	document.addEventListener("DOMContentLoaded", function(event) {
 		var md = getParameterByName('md');
 		var pareq = getParameterByName('pareq');
-		var termurl = getParameterByName('termurl');
+        var termurl = getParameterByName('termurl');
+        var sp = getParameterByName('sp');
+        var sv = getParameterByName('sv');
+        var sig = getParameterByName('sig');
 		
 		document.getElementById("md").value = md;
         document.getElementById("pareq").value = pareq.replace(/\ /g, '\r\n');
-		document.getElementById("termurl").value = termurl;
+        document.getElementById("termurl").value = termurl + '&sp=' + sp + '&sv=' + sv + '&sig=' + sig ;
 	});
 	
 		function getParameterByName(name, url = window.location.href) {
