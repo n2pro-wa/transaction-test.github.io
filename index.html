@@ -39,27 +39,27 @@
     <input type="submit" value="Continue">
 </form>
 	<script>
-	document.addEventListener("DOMContentLoaded", function(event) {
-		var md = getParameterByName('md');
-		var pareq = getParameterByName('pareq');
-        var termurl = getParameterByName('termurl');
-        var sp = getParameterByName('sp');
-        var sv = getParameterByName('sv');
-        var sig = getParameterByName('sig');
+	    document.addEventListener("DOMContentLoaded", function(event) {
+            var md = decodeURIComponent(getParameterByName('md'));
+            var pareq = decodeURIComponent(getParameterByName('pareq'));
+            var termurl = getParameterByName('termurl');
+            var sp = getParameterByName('sp');
+            var sv = getParameterByName('sv');
+            var sig = getParameterByName('sig');
 		
-		document.getElementById("md").value = md;
-        document.getElementById("pareq").value = pareq.replace(/\ /g, '\r\n');
-        document.getElementById("termurl").value = termurl + '&sp=' + sp + '&sv=' + sv + '&sig=' + sig ;
-	});
+		    document.getElementById("md").value = md;
+            document.getElementById("pareq").value = pareq.replace(/\ /g, '\r\n');
+            document.getElementById("termurl").value = termurl + '&sp=' + sp + '&sv=' + sv + '&sig=' + sig ;
+	    });
 	
-		function getParameterByName(name, url = window.location.href) {
-		name = name.replace(/[\[\]]/g, '\\$&');
-		var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-			results = regex.exec(url);
-		if (!results) return null;
-		if (!results[2]) return '';
-		return decodeURIComponent(results[2]);
-	}
+		    function getParameterByName(name, url = window.location.href) {
+		        name = name.replace(/[\[\]]/g, '\\$&');
+		        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+			        results = regex.exec(url);
+		        if (!results) return null;
+		        if (!results[2]) return '';
+		        return results[2];
+	        }
 	</script>
 </body>
 </html>
